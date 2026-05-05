@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>actividad 1 javascript</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Actividades de fundamentos javascript
+        </h1>
+        <div>
+            <h2>
+                1. Condicionales anidados
+            </h2>
+            <p>
+                Las estructuras condicionales permiten tomar decisiones en el código. En JavaScript se usan principalmente con  if, else y else if.
+                Un condicional anidado ocurre cuando dentro de un if hay otro if. Esto se usa cuando una decisión depende de otra.
+                Se utilizan en validaciones complejas, por ejemplo:
+            </p>
+            <ul>
+                <li>
+                    Sistemas de login
+                </li>
+                <li>
+                    Validación de pagos
+                </li>
+                <li>
+                    Control de permisos de usuario
+                </li>
+            </ul>
+            <span>
+                Ejemplo login con validación de rol. usuario: admin clave: 12345
+            </span>
+            <form onsubmit="validarLogin(event)">
+                <input type="text" id="usuario" placeholder="Usuario"><br><br>
+                <input type="password" id="password" placeholder="Contraseña"><br><br>
+                <button type="submit">
+                    Ingresar
+                </button>
+            </form>
+            <p id="resultado"></p>
+        </div>
+        <div>
+            <h2>
+                2. operadores logicos
+            </h2>
+            <p>
+                Los operadores lógicos permiten combinar condiciones:
+            </p>
+            <ul>
+                <li>
+                    && (AND): ambas condiciones deben cumplirse
+                </li>
+                <li>
+                    || (OR): al menos una se cumple
+                </li>
+                <li>
+                    ! (NOT): niega una condición
+                </li>
+            </ul>
+            <p>
+                Normalmente se usan para construir validaciones mas complejas como:
+            </p>
+            <ul>
+                <li>
+                    Formularios
+                </li>
+                <li>
+                    Sistemas de acceso
+                </li>
+                <li>
+                    Filtros de búsqueda
+                </li>
+            </ul>
+            <span>
+                un ejemplo real seria un registro de usuario, el cual se usa mucho en paginas donde se verifica la edad mas el documento
+            </span><br><br>
+            <form onsubmit="validar(event)">
+                <input type="number" id="edad" placeholder="Edad"><br><br>
+                <label>
+                    <input type="checkbox" id="cc">
+                    Cedula Ciudadania
+                </label><br><br>
+                <button type="submit">Registrarse</button>
+            </form>
+            <p id="respuesta"></p>
+        </div>
+        <div>
+            <h2>
+                
+            </h2>
+        </div>
+        <div>
+            <h2>
+                3. arrays
+            </h2>
+            <p>
+                Un array es una estructura de datos que permite almacenar múltiples valores dentro de una sola variable, organizados por posiciones (índices).
+                Cada elemento tiene una posición que empieza desde 0.
+                tinen uso fundamental en aplicaciones modernas
+            </p>
+            <ul>
+                <li>
+                    Listas de productos en tiendas online
+                </li>
+                <li>
+                    Usuarios en sistemas
+                </li>
+                <li>
+                    Datos que vienen de APIs
+                </li>
+                <li>
+                    Resultados de búsquedas
+                </li>
+            </ul>
+            <h3>
+                se clasifican de la siguiente manera
+            </h3>
+            <ul>
+                <li>
+                    Array simple (de un solo tipo):
+                </li>
+                <p>Contiene elementos similares. ejemplo: precios, cantidades, Id.</p>
+                <span>
+                    let numeros = [10, 20, 30, 40];
+                </span><br><br>
+                <li>
+                    Array mixto:
+                </li>
+                <p>
+                    Puede contener diferentes tipos de datos. ejemplo: Datos rápidos o pruebas (aunque en producción se usan más objetos)
+                </p>
+                <span>
+                    let mezcla = ["Juan", 25, true];
+                </span><br><br>
+                <li>
+                    Array de objetos 
+                </li>
+                <p>
+                    Es el más usado en desarrollo real y uno de los mas importantes en proyectos. ejemplo: Usuarios de una app, productos de una tienda, datos de una API.
+                </p>
+                <span>
+                    let usuarios = [{ nombre: "Juan", edad: 25 }];
+                </span><br><br>
+                <li>
+                    Array multidimensional
+                </li>
+                <p>
+                    Es un array dentro de otro array. ejemplo: Tablas de datos, juegos (tablero tipo sudoku o ajedrez).
+                </p>
+                <span>
+                    let matriz = [[1, 2, 3],[4, 5, 6]];
+                </span><br><br>
+                <li>
+                    Array vacío
+                </li>
+                <p>
+                    Se usa para llenar dinamicamente. ejemplo: Carrito de compras, listas que se llenan con interacción del usuario.
+                </p>
+                <span>
+                    let carrito = [ ];
+                </span><br><br>
+            </ul>
+            <span>
+                Un ejemplo claro seria una mini tienda, en la cual puedo Agregar productos con su respectivo precio y despues filtrarlos por precio o aplicarles descuento:
+            </span><br><br>
+            <form id="formProducto">
+                <input type="text" id="nombre" placeholder="Nombre del producto" required>
+                <input type="number" id="precio" placeholder="Precio" required>
+                <button type="submit">Agregar producto</button>
+            </form>
+            <br>
+            <button onclick="mostrarProductos()">Mostrar productos</button>
+            <button onclick="filtrarCaros()">Productos > 100</button>
+            <button onclick="aplicarDescuento()">Aplicar descuento</button>
+            <p id="resultadoArray"></p>
+        </div>
+        <div>
+            <h2>
+                4. objetos en javascript
+            </h2>
+            <p>
+                En JavaScript, los objetos son una de las estructuras más importantes. Básicamente, un objeto es una colección de pares clave y valor, donde cada clave (también llamada propiedad) tiene un valor asociado.
+                un objeto es como una “caja” que guarda información organizada y también pueden contener funciones (llamadas métodos). ejemplo: const persona = {nombre: "Ana",edad: 25,ciudad: "Cali"}; a la izquierda podemos ver sus propiedades y a la derecha sus valores
+            </p>
+            <h3>
+                funciones en objetos (metodos)
+            </h3>
+            <span>
+                Son funciones que tú mismo defines como propiedades del objeto.
+            </span>
+            <ul>
+                <li>
+                    Ejecutan lógica
+                </li>
+                <li>
+                    Usan this
+                </li>
+                <li>
+                    Manipulan datos
+                </li>
+            </ul>
+            <h3>
+                Funciones nativas para objetos
+            </h3>
+            <span>
+                JavaScript tiene funciones ya hechas en su lenguaje para trabajar con objetos (object):
+            </span>
+            <ul>
+                <li>
+                    keys() → claves
+                </li>
+                <li>
+                    values() → valores
+                </li>
+                <li>
+                    entries() → pares clave-valor
+                </li>
+                <li>
+                    assign() → copiar
+                </li>
+                <li>
+                    freeze() → bloquear cambios
+                </li>
+            </ul>
+            <h4>
+                "los resultados de los ejemplos solicitados para los anteriores casos se pueden observar en consola"
+            </h4>
+        </div>
+        <div>
+            <h2>
+                5. ciclos en javascript
+            </h2>
+            <p>
+                Un ciclo es una instrucción que repite un conjunto de acciones (también llamados loops), son estructuras de control que permiten ejecutar un bloque de código varias veces mientras se cumpla una condición o para recorrer colecciones de datos como arrays. Son fundamentales para automatizar tareas repetitivas y trabajar con datos dinámicos. Sin ciclos, tendrías que escribir manualmente cada operación repetida. Por ejemplo, si tienes un array con 100 elementos, un ciclo permite recorrerlos automáticamente sin escribir 100 líneas. existen varios tipos:
+            </p>
+            <h3>
+                Tipos principales de ciclos
+            </h3>
+            <ul>
+                <li>
+                    for
+                </li>
+                <span>
+                    Se usa cuando sabes cuántas veces quieres repetir algo. Tiene tres partes: Inicialización, condición, incremento 
+                </span>
+                <li>
+                    while
+                </li>
+                <span>
+                    Se ejecuta mientras una condición sea verdadera.
+                </span>
+                <li>
+                    for...of
+                </li>
+                <span>
+                    Ideal para recorrer arrays directamente.
+                </span>
+                <li>
+                    forEach
+                </li>
+                <span>
+                    Es un método de los arrays.
+                </span>
+                <h3>
+                    Buenas practicas
+                </h3>
+                <li>
+                    Evita ciclos infinitos (condiciones que nunca se vuelven falsas)
+                </li>
+                <li>
+                    Usa for...of o forEach cuando trabajes con arrays (más limpio)
+                </li>
+                <li>
+                    Usa break para salir del ciclo si es necesario
+                </li>
+                <li>
+                    Usa continue para saltar una iteración
+                </li>
+            </ul>
+            <h4>
+                "los ejemplos solicitados para ciclos se pueden observar en consola"
+            </h4>
+        </div>
+        <div>
+            <h2>
+                6. promesas en javascript
+            </h2>
+            <p>
+                En JavaScript, una promesa (Promise) es un objeto que representa la finalización o el fallo eventual de una operación asíncrona. Es decir, sirve para manejar tareas que tardan un tiempo en completarse, como peticiones a una API, lectura de archivos o temporizadores.
+            </p>
+            <h3>
+                Estados de una promesa
+            </h3>
+            <ul>
+                <li>
+                    Pending (pendiente) → todavía no se ha completado.
+                </li>
+                <li>
+                    Fulfilled (resuelta) → se completó con éxito.</li>
+                <li>
+                    Rejected (rechazada) → ocurrió un error.
+                </li>
+            </ul>
+            <h3>
+                tipos de promesas (uso comun)
+            </h3>
+            <h4>
+                1.Promesa simple (creada manualmente)
+            </h4>
+            <span>
+                Se usa con new Promise().
+            </span>
+            <h4>
+                2.Promesas utilitarias (métodos de Promise)
+            </h4>
+            <ul>
+                <li>
+                    Promise.all() → espera todas
+                </li>
+                <li>
+                    Promise.race() → gana la más rápida
+                </li>
+                <li>
+                    Promise.allSettled() → espera todas aunque fallen
+                </li>
+                <li>
+                    Promise.any() → la primera que se cumpla
+                </li>
+            </ul>
+            <h4>
+                "los ejemplos solicitados pueden verse en la consola"
+            </h4>
+        </div>
+        <div>
+            <h2>
+                7. funcion fecth
+            </h2>
+            <p>
+                La función fetch() en JavaScript se usa para hacer peticiones HTTP a recursos externos, como APIs o archivos en servidores. Es la forma moderna de obtener datos desde internet dentro del navegador. Permite enviar solicitudes (GET, POST, etc.) y recibir respuestas desde un servidor. ejemplo: 
+            </p>
+            <ul>
+                <li>
+                    Obtener datos de una API
+                </li>
+                <li>
+                    Enviar formularios
+                </li>
+                <li>Traer información de una base de datos (a través de un backend)</li>
+            </ul>
+            <h3>
+                como funciona?
+            </h3>
+            <span>
+                envia una solicitud al servidor y siempre devuelve una Promesa
+            </span>
+            <ul>
+                <li>
+                    fetch(url): (url) dirección del recurso API o servidor, envia la solicitud al servidor
+                </li>
+                <li>
+                    Recibe una respuesta (Response)
+                </li>
+                <li>
+                    .json() convierte los datos a formato JavaScript
+                </li>
+                <li>
+                    .then() muestra los datos
+                </li>
+                <li>
+                    .catch() captura errores
+                </li>
+            </ul>
+            <h4>
+                ejemplo con datos de url de usuario de prueba:
+            </h4>
+            <div>
+                <button onclick="cargarUsuario()">Cargar usuario</button>
+                <p id="resultadoFetch"></p>
+            </div>
+        </div>
+    </div>
+<script src="js/condicionales_anidados.js"></script>
+<script src="js/operadores_logicos.js"></script>
+<script src="js/arrays.js"></script>
+<script src="js/objetos.js"></script>
+<script src="js/ciclos.js"></script>
+<script src="js/promesas.js"></script>
+<script src="js/funcion_fecth.js"></script>
+</body>
+</html>
